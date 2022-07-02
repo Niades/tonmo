@@ -1,0 +1,75 @@
+.header {
+  text-align: center;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  
+  background: rgb(93,42,66);
+  background: linear-gradient(90deg, rgba(93,42,66,1) 0%, rgba(251,99,118,0.8337928921568627) 71%, rgba(252,177,166,1) 100%);
+}
+
+.sender,
+.receiver {
+  padding: 20px;
+  background-color: #FFDCCC;
+  width: 90%;
+  border-radius: var(--global-border-radius);
+  min-height: 100px;
+  margin: 20px auto;
+}
+
+.senderLabel,
+.receiverLabel {
+  display: block;
+}
+
+.senderSubtitle,
+.receiverSubtitle {
+  font-size: 0.7em;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.walletAddressInput,
+.sumInput {
+  margin-top: 7.5px;
+  display: block;
+  border-radius: var(--global-border-radius);
+  padding: 10px;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.arrow {
+  display: flex;
+  justify-content: center;
+}
+
+.amountSection {
+  position: relative;
+  padding: 20px;
+  margin: 20px 18.5px;
+  background-color: #FFF9EC;
+  border-radius: var(--global-border-radius);
+}
+
+.sumInputEnd {
+  position: absolute;
+  right: 31px;
+  top: 54px;
+}
+
+.sendBtn {
+  font-weight: 600;
+  display: block;
+  border: none;
+  box-sizing: border-box;
+  width: 90%;
+  background-color: #E2FAC7;
+  border-radius: var(--global-border-radius);
+  margin: 20px 18.5px;
+  padding: 20px;
+  text-align: center;
+}
