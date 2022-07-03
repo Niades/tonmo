@@ -1,19 +1,24 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setMnemonicWord } from "../../store/mnemonics";
 import { range } from "../../util";
 import MnemonicInput from "../../components/MnemonicInput/MnemonicInput";
 import Button from "../../components/Button/Button";
+import Spinner from '../../components/Spinner/Spinner';
+import { addWallet } from "../../store/tonweb";
 import * as s from "./Login.module.css";
 
 function Login() {
+  const [spinnerV, setSpinnerV] = useState(false);
   const mnemonics = useSelector((state) => state.mnemonics.value);
+  console.log(mnemonics.some((m) => m === ''));
   const dispatch = useDispatch();
   useEffect(() => {
     document.querySelector("#mnemonic-1").focus();
   }, []);
   return (
     <main className={s.main}>
+      <Spinner visible={spinnerV} text="Creating wallet..." />
       <section className={s.header}>
         <h1>TONmo</h1>
         <h3>
@@ -71,7 +76,14 @@ function Login() {
           This information is stored <u>only</u> on your computer.
         </span>
       </section>
-      <Button>Initialize Payment Channel</Button>
+      <Button 
+        disabled={mnemonics.some((m) => m === '')}
+        onClick={() => {
+          setSpinnerV(true);
+          dispatch(addWallet([mnemonics]));
+        }}>
+        Start
+      </Button>
     </main>
   );
 }

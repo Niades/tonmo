@@ -1,8 +1,8 @@
 import * as s from "./Button.module.css";
 
-function Button({ children, onClick }) {
+function Button({ children, onClick, disabled }) {
   return (
-    <button className={s.button} type="button" onClick={onClick}>
+    <button disabled={disabled} className={s.button} type="button" onClick={onClick}>
       {children}
     </button>
   );
