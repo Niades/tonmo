@@ -1,5 +1,8 @@
-import { init } from "@rematch/core";
-import * as models from "./models";
+import { configureStore } from '@reduxjs/toolkit'
+import mnemonicsReducer from "./mnemonics";
 
-const store = init({ models });
-export default store;
+export default configureStore({
+  reducer: {
+    mnemonics: mnemonicsReducer,
+  },
+});

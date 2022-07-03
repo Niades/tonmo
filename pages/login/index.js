@@ -1,11 +1,14 @@
 import { useEffect } from "react";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setMnemonicWord } from "../../store/mnemonics";
 import { range } from "../../util";
 import MnemonicInput from "../../components/MnemonicInput/MnemonicInput";
 import Button from "../../components/Button/Button";
 import * as s from "./Login.module.css";
 
-function Login({ mnemonics, setMnemonicWord }) {
+function Login() {
+  const mnemonics = useSelector((state) => state.mnemonics.value);
+  const dispatch = useDispatch();
   useEffect(() => {
     document.querySelector("#mnemonic-1").focus();
   }, []);
@@ -38,7 +41,7 @@ function Login({ mnemonics, setMnemonicWord }) {
               <div className={s.mnemonicInputContainer} key={number}>
                 <label htmlFor={`mnemonic-${number}`}>{number}.</label>
                 <MnemonicInput
-                  onChange={(newText) => setMnemonicWord(newText, idx)}
+                  onChange={(newText) => dispatch(setMnemonicWord([newText, idx]))}
                   value={mnemonics[idx]}
                   id={`mnemonic-${number}`}
                   tabIndex={number}
@@ -55,7 +58,7 @@ function Login({ mnemonics, setMnemonicWord }) {
                 <MnemonicInput
                   id={`mnemonic-${number}`}
                   tabIndex={12 + number}
-                  onChange={(newText) => setMnemonicWord(newText, idx + 12)}
+                  onChange={(newText) => dispatch(setMnemonicWord([newText, idx + 12]))}
                   value={mnemonics[idx + 12]}
                 />
               </div>
@@ -73,17 +76,4 @@ function Login({ mnemonics, setMnemonicWord }) {
   );
 }
 
-const mapState = (state) => {
-  return {
-    mnemonics: state.mnemonics,
-  };
-};
-
-const mapDispatch = (dispatch) => {
-  return {
-    setMnemonicWord: (word, idx) =>
-      dispatch.mnemonics.setMnemonicWord([word, idx]),
-  };
-};
-
-export default connect(mapState, mapDispatch)(Login);
+export default Login;
