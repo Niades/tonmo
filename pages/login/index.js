@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import MnemonicInput from "../../components/MnemonicInput/MnemonicInput";
+import Button from "../../components/Button/Button";
 import * as s from "./Login.module.css";
 
 function range(start, end) {
@@ -11,9 +12,20 @@ function range(start, end) {
 }
 
 function Login() {
-  const [mnemonics, setMnemonics] = useState([]);
+  const [mnemonics, setMnemonics] = useState(range(1, 24).map(() => ""));
+  const setMnemonicWord = useCallback(
+    (word, idx) => {
+      setMnemonics([
+        ...mnemonics.slice(0, idx),
+        word,
+        ...mnemonics.slice(idx + 1),
+      ]);
+      console.log("mnemonics =", mnemonics);
+    },
+    [mnemonics, setMnemonics]
+  );
   useEffect(() => {
-    document.querySelector('#mnemonic-1').focus();
+    document.querySelector("#mnemonic-1").focus();
   }, []);
   return (
     <main className={s.main}>
@@ -33,28 +45,35 @@ function Login() {
       <section className={s.pageDescription}>
         <p>
           To open a payment channel, first of all, you have to log in to your
-          TON Wallet with your mnemonic words.
+          TON Wallet with your 24 recovery words.
         </p>
       </section>
       <section className={s.mnemonicFieldsSection}>
         <div>
-          {range(1, 12).map((number) => {
+          {range(1, 12).map((number, idx) => {
             return (
               <div className={s.mnemonicInputContainer} key={number}>
                 <label htmlFor={`mnemonic-${number}`}>{number}.</label>
-                <MnemonicInput id={`mnemonic-${number}`} tabIndex={number} />
+                <MnemonicInput
+                  onChange={(newText) => setMnemonicWord(newText, idx)}
+                  value={mnemonics[idx]}
+                  id={`mnemonic-${number}`}
+                  tabIndex={number}
+                />
               </div>
             );
           })}
         </div>
         <div>
-          {range(13, 24).map((number) => {
+          {range(13, 24).map((number, idx) => {
             return (
               <div className={s.mnemonicInputContainer} key={number}>
                 <label htmlFor={`mnemonic-${number}`}>{number}.</label>
                 <MnemonicInput
                   id={`mnemonic-${number}`}
                   tabIndex={12 + number}
+                  onChange={(newText) => setMnemonicWord(newText, idx + 12)}
+                  value={mnemonics[idx + 12]}
                 />
               </div>
             );
@@ -62,8 +81,11 @@ function Login() {
         </div>
       </section>
       <section>
-        <span className={s.safetyDisclaimer}>This information is stored <u>only</u> on your computer.</span>
+        <span className={s.safetyDisclaimer}>
+          This information is stored <u>only</u> on your computer.
+        </span>
       </section>
+      <Button>Initialize Payment Channel</Button>
     </main>
   );
 }
