@@ -1,18 +1,13 @@
-import { useState, useEffect, useCallback } from "react";
+import { useEffect, useCallback } from "react";
+import { range } from "../../util";
 import MnemonicInput from "../../components/MnemonicInput/MnemonicInput";
+import useStore from '../../store/index';
 import Button from "../../components/Button/Button";
 import * as s from "./Login.module.css";
 
-function range(start, end) {
-  var foo = [];
-  for (var i = start; i <= end; i++) {
-    foo.push(i);
-  }
-  return foo;
-}
-
 function Login() {
-  const [mnemonics, setMnemonics] = useState(range(1, 24).map(() => ""));
+  const mnemonics = useStore(state => state.mnemonics);
+  const setMnemonics = useStore(state => state.setMnemonics(mnemonics))
   const setMnemonicWord = useCallback(
     (word, idx) => {
       setMnemonics([
