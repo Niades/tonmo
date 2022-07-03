@@ -2,10 +2,15 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -13,4 +18,14 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+body {
+  background: rgb(93, 42, 66);
+  background: linear-gradient(
+    90deg,
+    rgb(151, 98, 123) 0%,
+    rgba(251, 99, 118, 0.8337928921568627) 71%,
+    rgba(252, 177, 166, 1) 100%
+  );
 }

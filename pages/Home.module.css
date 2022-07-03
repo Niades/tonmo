@@ -1,0 +1,60 @@
+.header {
+  text-align: center;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sender,
+.receiver {
+  padding: 20px;
+  background-color: #ffdccc;
+  width: 90%;
+  border-radius: var(--global-border-radius);
+  min-height: 100px;
+  margin: 20px auto;
+}
+
+.senderLabel,
+.receiverLabel {
+  display: block;
+}
+
+.senderSubtitle,
+.receiverSubtitle {
+  font-size: 0.7em;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.walletAddressInput,
+.sumInput {
+  margin-top: 7.5px;
+  display: block;
+  border-radius: var(--global-border-radius);
+  padding: 10px;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.arrow {
+  display: flex;
+  justify-content: center;
+}
+
+.amountSection {
+  position: relative;
+  padding: 20px;
+  margin: 20px 18.5px;
+  background-color: #fff9ec;
+  border-radius: var(--global-border-radius);
+}
+
+.sumInputEnd {
+  position: absolute;
+  right: 31px;
+  top: 54px;
+}

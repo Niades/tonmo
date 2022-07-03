@@ -1,0 +1,33 @@
+.main {
+  padding: 10px;
+}
+
+.header {
+  text-align: center;
+}
+
+.paymentChannelsLink {
+  text-decoration: underline;
+}
+
+.pageDescription {
+  text-align: center;
+}
+
+.mnemonicFieldsSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.mnemonicInputContainer {
+  margin: 10px 0;
+  display: grid;
+  grid-template-columns: 25px 1fr;
+}
+
+.safetyDisclaimer {
+  display: block;
+  font-size: 0.9em;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.5);
+}
