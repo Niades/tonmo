@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import MnemonicInput from "../../components/MnemonicInput";
+import MnemonicInput from "../../components/MnemonicInput/MnemonicInput";
 import * as s from "./Login.module.css";
 
 function range(start, end) {
