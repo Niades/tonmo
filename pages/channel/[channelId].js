@@ -20,16 +20,20 @@ export default function Channel() {
     };
     fetchAddress();
   }, [setFromAddress, fromWallet]);
+  const channelAddress = `http://${global.location.hostname}/login?next=/channel/${channelId}`;
   return (
     <>
       <main className={s.main}>
         <section className={s.header}>
           <h1>TONmo</h1>
         </section>
-        <section>Channel status: Inactive</section>
-        <section>
-        Share this link with the other party:
-          <input type="text" readOnly={true} value={`http://${global.location.hostname}/login?next=/channel/${channelId}`} />
+        <section className={s.channelStatusSection}>
+          Channel status: Inactive
+        </section>
+        <section className={s.linkSection}>
+          Share this link with the other party:
+          <input type="text" value={channelAddress} />
+          <Button onClick={() => {}}>Copy Link</Button>
         </section>
         <form>
           <section className={s.sender}>

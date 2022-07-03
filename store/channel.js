@@ -14,7 +14,7 @@ export const channelSlice = createSlice({
     },
     setChannelId: (state, action) => {
       state.value.id = action.payload;
-    }
+    },
   },
 });
 

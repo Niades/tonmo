@@ -8,6 +8,14 @@
   justify-content: center;
 }
 
+.channelStatusSection {
+  text-align: center;
+}
+
+.linkSection {
+  text-align: center;
+}
+
 .sender,
 .receiver {
   padding: 20px;

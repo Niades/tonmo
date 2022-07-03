@@ -25,12 +25,14 @@ function Login() {
     dispatch(addWallet([mnemonics]));
     dispatch(createChannel());
   });
-  console.log(router.query)
+  console.log(router.query);
   if (channelId !== null) {
-    if(Object.keys(router.query) === 0) {
-      const channelId = router.query.next.split('/')[2];
+    debugger;
+    if (Object.keys(router.query) !== 0) {
+      const channelId = router.query.next.split("/")[2];
       dispatch(setChannelId(channelId));
       router.push("/channel/" + channelId);
+      return null;
     } else {
       router.push("/channel/" + channelId);
       return null;
