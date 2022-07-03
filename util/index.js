@@ -4,8 +4,6 @@ function range(start, end) {
     foo.push(i);
   }
   return foo;
-};
-
-export {
-  range,
 }
+
+export { range };

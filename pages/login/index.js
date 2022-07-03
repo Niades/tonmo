@@ -1,24 +1,11 @@
-import { useEffect, useCallback } from "react";
+import { useEffect } from "react";
+import { connect } from "react-redux";
 import { range } from "../../util";
 import MnemonicInput from "../../components/MnemonicInput/MnemonicInput";
-import useStore from '../../store/index';
 import Button from "../../components/Button/Button";
 import * as s from "./Login.module.css";
 
-function Login() {
-  const mnemonics = useStore(state => state.mnemonics);
-  const setMnemonics = useStore(state => state.setMnemonics(mnemonics))
-  const setMnemonicWord = useCallback(
-    (word, idx) => {
-      setMnemonics([
-        ...mnemonics.slice(0, idx),
-        word,
-        ...mnemonics.slice(idx + 1),
-      ]);
-      console.log("mnemonics =", mnemonics);
-    },
-    [mnemonics, setMnemonics]
-  );
+function Login({ mnemonics, setMnemonicWord }) {
   useEffect(() => {
     document.querySelector("#mnemonic-1").focus();
   }, []);
@@ -85,4 +72,17 @@ function Login() {
   );
 }
 
-export default Login;
+const mapState = (state) => {
+  return {
+    mnemonics: state.mnemonics,
+  };
+};
+
+const mapDispatch = (dispatch) => {
+  return {
+    setMnemonicWord: (word, idx) =>
+      dispatch.mnemonics.setMnemonicWord([word, idx]),
+  };
+};
+
+export default connect(mapState, mapDispatch)(Login);
