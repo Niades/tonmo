@@ -28,6 +28,7 @@ export default function Home() {
           </section>
           <section className={s.arrow}>
             <Image
+              alt="Arrow down"
               width={20}
               height={20}
               layout="fixed"

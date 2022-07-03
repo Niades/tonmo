@@ -17,6 +17,7 @@ function Login({ mnemonics, setMnemonicWord }) {
           Fast and secure way to send TON to another party via a{" "}
           <a
             target="_blank"
+            rel="noreferrer"
             className={s.paymentChannelsLink}
             href="https://telegra.ph/TON-Payments-07-01"
           >
