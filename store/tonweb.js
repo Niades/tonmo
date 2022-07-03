@@ -8,7 +8,6 @@ export const tonwebSlice = createSlice({
   },
   reducers: {
     addWallet: (state, action) => {
-      console.log("reducer called");
       const [mnemonics] = action.payload;
       state.value.addWallet(mnemonics);
     },

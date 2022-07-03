@@ -8,7 +8,12 @@ function Spinner({ text, visible }) {
   }
   return (
     <div className={s.spinnerContainer}>
-      <Image layout="raw" className={s.spinnerAnimation} src={SPINNER_ANIMATION_IMAGE} alt="Spinner animation" />
+      <Image
+        layout="raw"
+        className={s.spinnerAnimation}
+        src={SPINNER_ANIMATION_IMAGE}
+        alt="Spinner animation"
+      />
       <span className={s.spinnerText}>{text}</span>
     </div>
   );

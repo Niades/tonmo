@@ -16,12 +16,17 @@ class TonWebSingleton {
 
   async addWallet(mnemonic) {
     const keyPair = await tonMnemonic.mnemonicToKeyPair(mnemonic);
-    const wallet = this.tonweb.wallet.create({
+    const wallet = await this.tonweb.wallet.create({
       publicKey: keyPair.publicKey,
     });
     this.wallets.push(wallet);
-    console.log("[TonWebSingleton]: Wallet added. this.wallets = ", this.wallets);
+    console.log(
+      "[TonWebSingleton]: Wallet added. this.wallets = ",
+      this.wallets
+    );
   }
+
+  initChannel() {}
 }
 
 const tws = new TonWebSingleton();

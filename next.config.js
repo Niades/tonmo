@@ -3,7 +3,7 @@ const nextConfig = {
   experimental: {
     images: {
       allowFutureImage: true,
-    }
+    },
   },
   reactStrictMode: true,
   async rewrites() {
