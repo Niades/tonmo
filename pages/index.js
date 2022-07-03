@@ -1,6 +1,7 @@
 import Image from "next/image";
 import ARROW_DOWN_ICON from "../assets/images/arrow-down.svg";
 import * as s from "./Home.module.css";
+import Button from '../components/Button/Button';
 
 const BACKSPACE_KEYCODE = 8;
 
@@ -61,9 +62,7 @@ export default function Home() {
             />
             <span className={s.sumInputEnd}>TON</span>
           </section>
-          <button className={s.sendBtn} type="button" onClick={() => {}}>
-            Send
-          </button>
+          <Button>Send</Button>
         </form>
       </main>
     </>
