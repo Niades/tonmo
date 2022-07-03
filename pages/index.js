@@ -14,10 +14,16 @@ export default function Home() {
         </section>
         <form>
           <section className={s.sender}>
-            <label className={s.senderLabel} htmlFor="sender">From</label>
+            <label className={s.senderLabel} htmlFor="sender">
+              From
+            </label>
             <span className={s.senderSubtitle}>Any TON wallet</span>
-            <input id="sender" 
-              className={s.walletAddressInput} type="text" placeholder="Wallet address"/>
+            <input
+              id="sender"
+              className={s.walletAddressInput}
+              type="text"
+              placeholder="Wallet address"
+            />
           </section>
           <section className={s.arrow}>
             <Image
@@ -30,7 +36,7 @@ export default function Home() {
           <section className={s.receiver}>
             <label className={s.receiverLabel}>To</label>
             <span className={s.receiverSubtitle}>Any TON wallet</span>
-            <input 
+            <input
               className={s.walletAddressInput}
               id="receiver"
               type="text"
@@ -39,21 +45,25 @@ export default function Home() {
           </section>
           <section className={s.amountSection}>
             <label>Amount</label>
-            <input 
-              className={s.sumInput} max={99999}
-              type="number" placeholder="Amount"
+            <input
+              className={s.sumInput}
+              max={99999}
+              type="number"
+              placeholder="Amount"
               onKeyDown={(e) => {
-                if(e.keyCode !== BACKSPACE_KEYCODE) {
-                  if(e.target.value.length > 6) {
+                if (e.keyCode !== BACKSPACE_KEYCODE) {
+                  if (e.target.value.length > 6) {
                     e.preventDefault();
                     e.stopPropagation();
                   }
                 }
-              }}  
-              />
-            <span className={s.sumInputEnd} >TON</span>
+              }}
+            />
+            <span className={s.sumInputEnd}>TON</span>
           </section>
-          <button className={s.sendBtn} type="button" onClick={() => {}}>Send</button>
+          <button className={s.sendBtn} type="button" onClick={() => {}}>
+            Send
+          </button>
         </form>
       </main>
     </>
