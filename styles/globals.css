@@ -19,3 +19,13 @@ a {
 * {
   box-sizing: border-box;
 }
+
+body {
+  background: rgb(93, 42, 66);
+  background: linear-gradient(
+    90deg,
+    rgb(151, 98, 123) 0%,
+    rgba(251, 99, 118, 0.8337928921568627) 71%,
+    rgba(252, 177, 166, 1) 100%
+  );
+}

@@ -12,7 +12,8 @@
     "next": "12.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "tonweb": "^0.0.50"
+    "tonweb": "^0.0.50",
+    "zustand": "^4.0.0-rc.1"
   },
   "devDependencies": {
     "eslint": "8.18.0",

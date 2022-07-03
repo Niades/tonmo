@@ -6,13 +6,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: rgb(93, 42, 66);
-  background: linear-gradient(
-    90deg,
-    rgba(93, 42, 66, 1) 0%,
-    rgba(251, 99, 118, 0.8337928921568627) 71%,
-    rgba(252, 177, 166, 1) 100%
-  );
 }
 
 .sender,
